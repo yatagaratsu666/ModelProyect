@@ -6,9 +6,11 @@ import brenda.util.iterator.Iterator;
 import brenda.util.priorityqueue.AbstractPriorityQueue;
 
 public class PriorityQueue<E> extends AbstractPriorityQueue<E> {
-    
+
     private Array<Queue<E>> priority;
     private int prioridades;
+    private int size = 0;
+    private int inode = 0;
 
     public PriorityQueue(int amtData) {
         this.prioridades = amtData;
@@ -34,13 +36,14 @@ public class PriorityQueue<E> extends AbstractPriorityQueue<E> {
         for (int i = this.prioridades - 1; i >= 0; i--) {
             this.priority.get(i).clear();
         }
+        size = 0;
         return true;
     }
 
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
-            private int priorityIndex = prioridades - 1;
+            private int priorityIndex = 0;
             private Iterator<E> currentIterator = priority.get(priorityIndex).iterator();
 
             @Override
@@ -48,8 +51,8 @@ public class PriorityQueue<E> extends AbstractPriorityQueue<E> {
                 if (currentIterator.hasNext()) {
                     return true;
                 } else {
-                    while (priorityIndex > 0) {
-                        priorityIndex--;
+                    while (priorityIndex < prioridades - 1) {
+                        priorityIndex++;
                         currentIterator = priority.get(priorityIndex).iterator();
                         if (currentIterator.hasNext()) {
                             return true;
@@ -68,17 +71,24 @@ public class PriorityQueue<E> extends AbstractPriorityQueue<E> {
 
     @Override
     public boolean insert(E element) {
-        return this.priority.get(this.priority.size() - 1).insert(element);
+        if (this.priority.size() > inode) {
+            size++;
+            inode++;
+            return this.priority.get(0).insert(element);
+        } else {
+            return false;
+        }
     }
 
     @Override
     public boolean insert(int index, E element) {
-        if (index >= 0 && index < this.priority.size()) {
+        if (index >= 0 && index < this.priority.size() && this.size < this.prioridades) {
+            size++;
             Queue<E> targetQueue = this.priority.get(index);
             targetQueue.insert(element);
             return true;
         } else {
-            return false; // Índice fuera de rango
+            return false;
         }
     }
 
@@ -92,14 +102,15 @@ public class PriorityQueue<E> extends AbstractPriorityQueue<E> {
         for (int i = 0; i < this.priority.size(); i++) {
             Queue<E> current = this.priority.get(i);
             if (!current.isEmpty()) {
+                size--;
                 return current.extract();
             }
         }
         return null;
     }
-    
+
     @Override
-    public int size(){
-        return this.priority.size();
+    public int size() {
+        return size;
     }
 }

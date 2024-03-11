@@ -25,6 +25,8 @@ public class Queue<E> extends AbstractQueue<E> {
     public E extract() {
         E data = array.get(0);
         array.remove(0);
+        array.defragment();
+        array.dimension(array.size());
         return data;
     }
 
