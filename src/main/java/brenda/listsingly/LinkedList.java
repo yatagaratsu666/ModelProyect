@@ -1,4 +1,3 @@
-
 package brenda.listsingly;
 
 import java.util.NoSuchElementException;
@@ -778,3 +777,4 @@ public class LinkedList<E> extends AbstractList<E> {
         return replaced;
     }
 }
+
