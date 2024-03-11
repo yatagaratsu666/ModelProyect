@@ -1,4 +1,3 @@
-
 package pruebasnose;
 
 import brenda.priorityqueue.PriorityQueue;
@@ -18,7 +17,14 @@ public class hola4 {
             String task = iterator.next();
             System.out.println(task);
         }
+<<<<<<< HEAD
         System.out.println(priorityQueue.extract());
+=======
+        priorityQueue.extract();
+        priorityQueue.extract();
+        priorityQueue.extract();
+//        System.out.println(priorityQueue.extract());
+>>>>>>> ec87ac3c5318b00459cad26bbeb1c97516ce0656
 //        System.out.println(priorityQueue.extract());
 //        System.out.println(priorityQueue.extract());
         System.out.println(priorityQueue.size());
