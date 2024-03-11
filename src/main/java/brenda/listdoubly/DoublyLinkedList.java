@@ -1,4 +1,3 @@
-
 package brenda.listdoubly;
 
 import brenda.nodedoubly.LinkedNode;
