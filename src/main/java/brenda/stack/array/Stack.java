@@ -70,10 +70,10 @@ public class Stack<E> extends AbstractStack<E> {
 
     @Override
     public E pop() {
-        E base = array.get(0);
-        array.remove(0);
+        E base = array.get(array.size()-1);
+        array.remove(array.size()-1);
         array.defragment();
-        array.dimension(array.size()-1);
+        array.dimension(array.size());
         return base;
     }
 
