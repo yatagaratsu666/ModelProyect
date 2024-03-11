@@ -1,7 +1,7 @@
 
 package pruebasnose;
 
-import brenda.circularlist.LinkedList;
+import brenda.listsingly.LinkedList;
 import brenda.util.collection.Collection;
 import brenda.util.iterator.Iterator;
 import java.util.function.Function;
@@ -15,12 +15,13 @@ public class hola2 {
         list.add(9990);
         list.add(99);
         list.addFirst(5);
-        Function<Integer, Void> square = (number) -> {
-            int result = number * number;
-            System.out.println("El cuadrado de " + number + " es: " + result);
-            return null;
-        };
-        list.forEach(square);
+//        Function<Integer, Void> square = (number) -> {
+//            int result = number * number;
+//            System.out.println("El cuadrado de " + number + " es: " + result);
+//            return null;
+//        };
+//        list.forEach(square);
+        System.out.println(list.pollLast());
         Iterator iterator = list.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());

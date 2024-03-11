@@ -10,13 +10,13 @@ public class PriorityQueue<E> extends AbstractPriorityQueue<E> {
     private Array<Queue<E>> priority;
     private int prioridades;
     private int size = 0;
-    private int inode = 0;
 
-    public PriorityQueue(int amtData) {
-        this.prioridades = amtData;
-        this.priority = new Array<>(amtData);
-        for (int i = 0; i < amtData; i++) {
-            this.priority.add(new Queue<>());
+    public PriorityQueue(int imtData) {
+        this.size = 0;
+        this.priority = new Array<>(imtData);
+        this.prioridades = imtData;
+        for (int i = 0; i < imtData; i++) {
+            priority.add(new Queue<>());
         }
     }
 
@@ -71,39 +71,34 @@ public class PriorityQueue<E> extends AbstractPriorityQueue<E> {
 
     @Override
     public boolean insert(E element) {
-        if (this.priority.size() > inode) {
-            size++;
-            inode++;
-            return this.priority.get(0).insert(element);
-        } else {
-            return false;
-        }
+        priority.get(prioridades - 1).insert(element);
+        size++;
+        return true;
     }
 
     @Override
     public boolean insert(int index, E element) {
-        if (index >= 0 && index < this.priority.size() && this.size < this.prioridades) {
-            size++;
-            Queue<E> targetQueue = this.priority.get(index);
-            targetQueue.insert(element);
-            return true;
-        } else {
-            return false;
-        }
+        priority.get(index).insert(element);
+        size++;
+        return true;
     }
 
     @Override
     public E peek() {
-        return this.priority.get(0).peek();
+        for (int i = 0; i < prioridades; i++) {
+            if (priority.get(i).size() != 0) {
+                return priority.get(i).peek();
+            }
+        }
+        return null;
     }
 
     @Override
     public E extract() {
-        for (int i = 0; i < this.priority.size(); i++) {
-            Queue<E> current = this.priority.get(i);
-            if (!current.isEmpty()) {
+        for (int i = 0; i < prioridades; i++) {
+            if (priority.get(i).size() != 0) {
                 size--;
-                return current.extract();
+                return priority.get(i).extract();
             }
         }
         return null;

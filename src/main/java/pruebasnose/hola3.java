@@ -12,12 +12,12 @@ import java.util.function.Predicate;
 
 public class hola3 {
     public static void main(String[] args) {
-        LinkedListDoubly<Integer> list1 = new LinkedListDoubly<>();
+        DoublyLinkedList<Integer> list1 = new DoublyLinkedList<>();
         list1.add(5);
         list1.add(10);
         list1.add(15);
         list1.addFirst(0);
-        list1.pollCollection(2);
+        list1.pollLast();
 //        DoublyLinkedList<Integer> list2 = new DoublyLinkedList<>();
 //        list2.add(12);
 //        list2.add(34);

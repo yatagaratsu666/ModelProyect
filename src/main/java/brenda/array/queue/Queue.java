@@ -7,49 +7,82 @@ import brenda.util.iterator.Iterator;
 import brenda.util.queue.AbstractQueue;
 import java.util.function.Function;
 
-
 public class Queue<E> extends AbstractQueue<E> {
     
     Array<E> array;
+    int head;
+    int tail;
+    int dimension;
 
     public Queue(int amtData) {
         array = new Array<>(amtData);
+        head = 0;
+        tail = 0;
+        dimension = amtData;
     }
-
+    
     @Override
     public E peek() {
-        return array.get(0);
+        return array.get(head);
     }
 
     @Override
     public E extract() {
-        E data = array.get(0);
-        array.remove(0);
-        array.defragment();
-        array.dimension(array.size());
-        return data;
+        E element = array.get(head);
+        if (array.remove(head++) && element != null) {
+            head %= dimension;
+            return element;
+        }
+        return null;
     }
+
 
     @Override
     public boolean insert(E element) {
-        return array.add(element);
+        if (array.add(element)) {
+            tail = (tail + 1) % dimension;
+            return true;
+        }
+        return false;
     }
-
+    
     @Override
     public boolean reverse() {
-        return array.remove(0);
+        if (isEmpty()) {
+            return false;
+        }
+        head = (head - 1 + array.size()) % array.size();
+        return true;
     }
+
 
     @Override
     public boolean clear() {
         array.clear();
         array.defragment();
+        head = 0;
+        tail = 0;
         return true;
     }
 
     @Override
     public Iterator<E> iterator() {
-        return array.iterator();
+        return new Iterator<>() {
+            int count = 0;
+            int apuntador = head;
+            @Override
+            public boolean hasNext() {
+                return count++ < array.size();
+            }
+
+            @Override
+            public E next() {
+                if (apuntador >= dimension) {
+                    apuntador=0;
+                }
+                return array.get(apuntador++);
+            }
+        };
     }
 
     @Override

@@ -315,17 +315,13 @@ public class LinkedList<E> extends AbstractList<E> {
 
     @Override
     public E poll() {//verified
-        E data = (E) head;
-        LinkedNode<E> node = new LinkedNode<>(data);
-        if(isEmpty()){
-            return data = null;
-        } else{
-            node.set((E)head);
-            head = head.getNext();
-            node.setNext(head.getNext());
-            size--;
-            return data;
-        }      
+        if (isEmpty()) {
+            return null; 
+        }
+        E data = head.get();
+        head = head.getNext();
+        size--;
+        return data;
     }
 
     @Override
@@ -333,21 +329,23 @@ public class LinkedList<E> extends AbstractList<E> {
         if (isEmpty()) {
             return null;
         }
+
         E data = tail.get();
+
         if (size == 1) {
             head = null;
             tail = null;
         } else {
-            LinkedNode<E> miku = head;
-            while (miku.getNext() != tail) {
-                miku = miku.getNext();
+            LinkedNode<E> previousToTail = head;
+            while (previousToTail.getNext() != tail) {
+                previousToTail = previousToTail.getNext();
             }
-            miku.setNext(null);
-            tail = miku;
+            previousToTail.setNext(null);
+            tail = previousToTail;
         }
         size--;
         return data;
-    }  
+    }
 
     @Override
     public E[] pollArray(int n) {//verified

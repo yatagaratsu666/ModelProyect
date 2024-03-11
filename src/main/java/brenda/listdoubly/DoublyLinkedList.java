@@ -204,9 +204,10 @@ public class DoublyLinkedList<E> extends AbstractList<E> {
     @Override
     public E poll() {//verified
         if (size == 0) {
-            return null;
+            return null; 
         } else {
-            E entrega = head.get();
+            E save = head.get(); 
+
             if (size == 1) {
                 head = null;
                 tail = null;
@@ -217,7 +218,7 @@ public class DoublyLinkedList<E> extends AbstractList<E> {
                 head = next;
             }
             size--;
-            return entrega;
+            return save;
         }
     }
 
