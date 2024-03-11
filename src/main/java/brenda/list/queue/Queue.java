@@ -16,12 +16,12 @@ public class Queue<E> extends AbstractQueue<E> {
 
     @Override
     public E peek() {
-        return this.linkedlist.peek();
+        return this.linkedlist.peekLast();
     }
 
     @Override
     public E extract() {
-        return this.linkedlist.poll();
+        return this.linkedlist.pollLast();
     }
 
     @Override
