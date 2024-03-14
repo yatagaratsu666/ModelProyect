@@ -10,13 +10,13 @@ import java.util.function.Function;
 
 public class Stack<E> extends AbstractStack<E> {
     
-    Array<E> array;
-    
-    public Stack(int amtData){
-        array = new Array(amtData);
+    private Array<E> array;
+
+    public Stack(int amtData) {
+        array = new Array<>(amtData);
     }
 
-    @Override
+ @Override
     public boolean reverse() {
         return array.reverse();
     }
@@ -30,33 +30,31 @@ public class Stack<E> extends AbstractStack<E> {
     public Iterator<E> iterator() {
         return array.iterator();
     }
-    
+
     @Override
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return array.isEmpty();
     }
-    
-        @Override
-    public int size(){
+
+    @Override
+    public int size() {
         return array.size();
     }
 
     @Override
-    public void forEach(Function<E, Void> action){
+    public void forEach(Function<E, Void> action) {
         array.forEach(action);
     }
 
     @Override
-    public boolean contains(E element){
+    public boolean contains(E element) {
         return array.contains(element);
     }
 
-
     @Override
-    public boolean contains(E[] array) {
-        return this.array.contains(array);
+    public boolean contains(E[] elements) {
+        return array.contains(elements);
     }
-
 
     @Override
     public boolean contains(Collection<E> collection) {
@@ -70,15 +68,15 @@ public class Stack<E> extends AbstractStack<E> {
 
     @Override
     public E pop() {
-        E base = array.get(size()-1);
-        array.remove(size()-1);
+        E base = array.get(0);
+        array.remove(0);
         array.defragment();
-        array.dimension(array.size());
+        array.dimension(array.size()-1);
         return base;
     }
 
     @Override
     public boolean push(E element) {
         return array.add(element);
-    }  
+    }
 }
