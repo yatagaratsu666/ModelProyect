@@ -5,18 +5,18 @@ import brenda.array.Array;
 import brenda.util.collection.Collection;
 import brenda.util.iterator.Iterator;
 import brenda.util.stack.AbstractStack;
+import java.util.NoSuchElementException;
 import java.util.function.Function;
 
 
 public class Stack<E> extends AbstractStack<E> {
-    
-    private Array<E> array;
+private Array<E> array;
 
     public Stack(int amtData) {
         array = new Array<>(amtData);
     }
 
- @Override
+    @Override
     public boolean reverse() {
         return array.reverse();
     }
@@ -28,7 +28,22 @@ public class Stack<E> extends AbstractStack<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return array.iterator();
+        return new Iterator<E>() {
+            private int currentIndex = size() - 1; // Empezamos desde el último elemento
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex >= 0;
+            }
+
+            @Override
+            public E next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException("No hay más elementos en la pila");
+                }
+                return array.get(currentIndex--);
+            }
+        };
     }
 
     @Override
@@ -55,7 +70,7 @@ public class Stack<E> extends AbstractStack<E> {
     public boolean contains(E[] elements) {
         return array.contains(elements);
     }
-
+    
     @Override
     public boolean contains(Collection<E> collection) {
         return array.contains(collection);
@@ -63,13 +78,15 @@ public class Stack<E> extends AbstractStack<E> {
 
     @Override
     public E peek() {
-        return array.get(0);
+        if (isEmpty())
+            return null;
+        return array.get(size() - 1);
     }
 
     @Override
     public E pop() {
-        E base = array.get(0);
-        array.remove(0);
+        E base = array.get(size() - 1);
+        array.remove(size() - 1);
         array.defragment();
         array.dimension(array.size()-1);
         return base;
