@@ -1,3 +1,4 @@
+
 package brenda.array.queue;
 
 import brenda.array.Array;
@@ -8,10 +9,11 @@ import java.util.function.Function;
 
 public class Queue<E> extends AbstractQueue<E> {
     
-    Array<E> array;
-    int head;
-    int tail;
-    int dimension;
+    private Array<E> array;
+    private int head;
+    private int tail;
+    private int dimension;
+    private int base;
 
     public Queue(int amtData) {
         array = new Array<>(amtData);
@@ -19,7 +21,7 @@ public class Queue<E> extends AbstractQueue<E> {
         tail = 0;
         dimension = amtData;
     }
-    
+
     @Override
     public E peek() {
         return array.get(head);
@@ -27,38 +29,35 @@ public class Queue<E> extends AbstractQueue<E> {
 
     @Override
     public E extract() {
-        E element = array.get(head);
-        if (array.remove(head++) && element != null) {
-            head %= dimension;
-            return element;
+        if (isEmpty()) {
+            return null;
         }
-        return null;
+        E element = array.get(head);
+        array.remove(0);
+        array.defragment();
+        array.dimension(array.size());
+        dimension--;
+        base--;
+        return element;
     }
-
 
     @Override
     public boolean insert(E element) {
-        if (array.add(element)) {
-            tail = (tail + 1) % dimension;
-            return true;
-        }
-        return false;
-    }
-    
-    @Override
-    public boolean reverse() {
-        if (isEmpty()) {
-            return false;
-        }
-        head = (head - 1 + array.size()) % array.size();
+        base++;
+        array.add(element);
+        tail = (tail + 1) % dimension;
         return true;
     }
 
+    @Override
+    public boolean reverse() {
+        array.reverse();
+        return true;
+    }
 
     @Override
     public boolean clear() {
         array.clear();
-        array.defragment();
         head = 0;
         tail = 0;
         return true;
@@ -71,7 +70,7 @@ public class Queue<E> extends AbstractQueue<E> {
             int apuntador = head;
             @Override
             public boolean hasNext() {
-                return count++ < array.size();
+                return count++ < base;
             }
 
             @Override
@@ -105,8 +104,8 @@ public class Queue<E> extends AbstractQueue<E> {
     }
 
     @Override
-    public boolean contains(E[] array) {
-        return this.array.contains(array);
+    public boolean contains(E[] elements) {
+        return array.contains(elements);
     }
 
     @Override
@@ -114,3 +113,4 @@ public class Queue<E> extends AbstractQueue<E> {
         return array.contains(collection);
     }
 }
+
