@@ -17,17 +17,33 @@ public class hola {
 
     public static void main(String[] args) {
         
-        Stack<Integer> stack = new Stack<>();
+//        Array<Integer> array = new Array(5);
+//        array.dimension(0);
+//        Queue<Integer> queue = new Queue(5);
+//        queue.insert(1);
+//        queue.insert(5);
+//        queue.insert(2);
+////        System.out.println(queue.extract());
+////        System.out.println(queue.peek());
+//        Iterator it = queue.iterator();
+//        while(it.hasNext()){
+//            System.out.println(it.next());
+//        }
+
+        Stack<Integer> stack = new Stack(3);
         
         stack.push(5);
         stack.push(3);
         stack.push(9);
-        stack.pop();
+        System.out.println(stack.pop());
+//        System.out.println(stack.pop());
+        System.out.println(stack.size());
         System.out.println(stack.peek());
         Iterator ite = stack.iterator();
         while (ite.hasNext()) {
             System.out.println(ite.next());
         }
+    }
         
 //        LinkedList<Object> list1 = new LinkedList<>();
 //        HashMap<Integer, Boolean> hash1 = new HashMap<>();
@@ -49,7 +65,6 @@ public class hola {
 //        for(int i = 0; i < array1.length; i++){
 //            System.out.println(array1[i]);
 //        }
-    }
 }
 //        Array<Integer> list = new Array(3);
 //        list.add(23);
