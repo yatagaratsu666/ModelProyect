@@ -1,4 +1,3 @@
-
 package brenda.array.queue;
 
 import brenda.array.Array;
