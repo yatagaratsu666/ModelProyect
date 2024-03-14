@@ -17,6 +17,7 @@ public class Array<E> extends AbstractArray2<E> {
     }
     
     public Array(E[] data){
+        elements = (E[]) new Object[data.length];
         add(0, data);
     }
 
