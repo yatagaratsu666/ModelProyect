@@ -1,0 +1,38 @@
+[
+    {
+        "Nombre": "Arnold",
+        "Carga": 32,
+        "Identificador": "1-1A",
+        "Kilometraje": 0
+    },
+    {
+        "Nombre": "Arnold",
+        "Carga": 32,
+        "Identificador": "1-2A",
+        "Kilometraje": 0
+    },
+    {
+        "Nombre": "Arnold",
+        "Carga": 32,
+        "Identificador": "1-3A",
+        "Kilometraje": 0
+    },
+    {
+        "Nombre": "Mercedes-Benz",
+        "Carga": 28,
+        "Identificador": "1-5A",
+        "Kilometraje": 0
+    },
+    {
+        "Nombre": "Mercedes-Benz",
+        "Carga": 28,
+        "Identificador": "1-5B",
+        "Kilometraje": 0
+    },
+    {
+        "Nombre": "Arnold",
+        "Carga": 32,
+        "Identificador": "1-9A",
+        "Kilometraje": 0
+    }
+]

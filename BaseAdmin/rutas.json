@@ -1,0 +1,79 @@
+[
+     {
+          "tren": "Arnold",
+          "precio": 30,
+          "horarios": "14:33",
+          "capacidadTren": 32,
+          "idTren": "1-3A",
+          "id": 0,
+          "destino": "A",
+          "inicial": "B",
+          "Kilometraje": 0
+     },
+     {
+          "tren": "Arnold",
+          "precio": 40,
+          "horarios": "16:30",
+          "capacidadTren": 32,
+          "idTren": "1-2A",
+          "id": 1,
+          "destino": "A",
+          "inicial": "C",
+          "Kilometraje": 0
+     },
+     {
+          "tren": "Arnold",
+          "precio": 50,
+          "horarios": "14:30",
+          "capacidadTren": 32,
+          "idTren": "1-3A",
+          "id": 2,
+          "destino": "A",
+          "inicial": "D",
+          "Kilometraje": 0
+     },
+     {
+          "tren": "Arnold",
+          "precio": 50,
+          "horarios": "15:00",
+          "capacidadTren": 32,
+          "idTren": "1-1A",
+          "id": 3,
+          "destino": "F",
+          "inicial": "A",
+          "Kilometraje": 0
+     },
+     {
+          "tren": "Arnold",
+          "precio": 65,
+          "horarios": "19:00",
+          "capacidadTren": 32,
+          "idTren": "1-3A",
+          "id": 4,
+          "destino": "E",
+          "inicial": "F",
+          "Kilometraje": 0
+     },
+     {
+          "tren": "Mercedes-Benz",
+          "precio": 20,
+          "horarios": "18:55",
+          "capacidadTren": 28,
+          "idTren": "1-5B",
+          "id": 5,
+          "destino": "D",
+          "inicial": "E",
+          "Kilometraje": 0
+     },
+     {
+          "tren": "Mercedes-Benz",
+          "precio": 80,
+          "horarios": "19:35",
+          "capacidadTren": 28,
+          "idTren": "1-5B",
+          "id": 6,
+          "destino": "G",
+          "inicial": "F",
+          "Kilometraje": 0
+     }
+]
