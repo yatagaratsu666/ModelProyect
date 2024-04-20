@@ -1,0 +1,50 @@
+[
+     {
+          "tel1": "123",
+          "tel2": "321",
+          "trayecto": "AF",
+          "equipajes": 2,
+          "peso": 57,
+          "categoria": "Premium",
+          "inicio": "A",
+          "fin": "F",
+          "nombre": "hola",
+          "fecha": "04:12:54",
+          "tren": "1-2A",
+          "precio": 90000,
+          "apellido": "como",
+          "id": "678"
+     },
+     {
+          "tel1": "123",
+          "tel2": "321",
+          "trayecto": "AF",
+          "equipajes": 2,
+          "peso": 57,
+          "categoria": "Premium",
+          "inicio": "A",
+          "fin": "F",
+          "nombre": "hola",
+          "fecha": "04:13:28",
+          "tren": "1-2A",
+          "precio": 90000,
+          "apellido": "como",
+          "id": "678"
+     },
+     {
+          "tel1": "4837578",
+          "tel2": "4358958",
+          "trayecto": "AF",
+          "equipajes": 1,
+          "peso": 50,
+          "categoria": "Premium",
+          "inicio": "A",
+          "fin": "F",
+          "nombre": "Hatsune",
+          "fecha": "04:17:21",
+          "tren": "1-3A",
+          "precio": 90000,
+          "apellido": "Miku",
+          "id": "66"
+     }
+]

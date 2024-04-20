@@ -1,0 +1,20 @@
+[
+     {
+          "password": "mikuhatsune",
+          "apellido": "Miku",
+          "telefono1": "321",
+          "telefono2": "123",
+          "id": "666",
+          "nombre": "hatsune",
+          "user": "auxilio123"
+     },
+     {
+          "password": "luka",
+          "apellido": "luka",
+          "telefono1": "567",
+          "telefono2": "765",
+          "id": "555",
+          "nombre": "megurine",
+          "user": "megurine"
+     }
+]

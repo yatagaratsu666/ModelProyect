@@ -1,0 +1,10 @@
+[
+ {"accion": "Intento fallido de ingreso a la cuenta"},
+ {"accion": "Intento fallido de ingreso a la cuenta"},
+ {"accion": "Empleado admin4 ingreso con exito"},
+ {"accion": "Se consultaron las rutas disponibles"},
+ {"accion": "Se consultaron los trenes disponibles"},
+ {"accion": "Se consultaron las estaciones disponibles"},
+ {"accion": "Se consulto el historial de acciones"},
+ {"accion": "Se ha cerrado sesion"}
+]
